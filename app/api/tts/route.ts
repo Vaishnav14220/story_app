@@ -77,7 +77,7 @@ export async function POST(req: Request) {
         const wavBuffer = createWavBuffer(pcmBuffer);
 
         // Return the WAV file directly
-        return new Response(wavBuffer, {
+        return new Response(wavBuffer as unknown as BodyInit, {
             headers: {
                 "Content-Type": "audio/wav",
                 "Content-Length": wavBuffer.length.toString(),
